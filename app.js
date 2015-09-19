@@ -1,2 +1,2 @@
 angular.module('binary', [])
-	.controller('MainCtrl', MainCtrl);
+	.controller('BinaryCtrl', BinaryCtrl);
