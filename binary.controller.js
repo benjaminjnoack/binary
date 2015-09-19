@@ -1,32 +1,35 @@
 var BinaryCtrl = function ($scope) {
-	$scope.baseTwoModel = "00000000";
-	$scope.baseTenModel = 0;
+	$scope.model = {
+		baseTwo: '',
+		baseTen: 0
+	}
 
 	var increase = function () {
-		if ($scope.baseTenModel < 255) {
-			$scope.baseTenModel += 1;
-			$scope.baseTwoModel = calculateBinary();
+		if ($scope.model.baseTen < 255) {
+			$scope.model.baseTen += 1;
+			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
 		} 
 	}
 
 	var decrease = function () {
-		if ($scope.baseTenModel > 0) {
-			$scope.baseTenModel -= 1;
-			$scope.baseTwoModel = calculateBinary();
+		if ($scope.model.baseTen > 0) {
+			$scope.model.baseTen -= 1;
+			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
 		} 
 	}
 
-	var calculateBinary = function () {
-		// var ones = twos = fours = eights = sixteens = thirtyTwos = sixtyFours = oneTwentyEights = "0";
-		var binaryString = ($scope.baseTenModel >>> 0).toString(2);
-		var neededZeros = 8 - binaryString.length;
-		if (neededZeros) {
-			for (var i = 0; i < neededZeros; i++) {
-				binaryString = "0" + binaryString;
-			};
-		}
+	var calculateBinary = function (num) {
+		var binaryString = (num >>> 0).toString(2);
+		
+		for (var i = 0, len = (8 - binaryString.length); i < len; i++) {
+			binaryString = "0" + binaryString;
+		};
 
 		return binaryString;
+	}
+
+	$scope.testing = function () {
+		return false;
 	}
 
 	$scope.increase = increase;
