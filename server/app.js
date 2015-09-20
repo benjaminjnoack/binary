@@ -1,9 +1,12 @@
-var path = require('path');
-var express = require('express');
-var app = express();
+var path 		= require('path'),
+	express 	= require('express');
+	app 		= express();
 
-app.use('/static', express.static(path.resolve(__dirname, '../client')));
-app.use(/^\/{0,1}$/, express.static(path.resolve(__dirname, '../client')));
+var clientDir = path.resolve(__dirname, '../client');
+
+//combine?
+app.use('/static', express.static(clientDir));
+app.use(/^\/{0,1}$/, express.static(clientDir));
 
 var server = app.listen(8080, function () {
   	var port = server.address().port;
