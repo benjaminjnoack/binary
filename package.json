@@ -1,0 +1,23 @@
+{
+  "name": "binary",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "benjaminjnoack",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/benjaminjnoack/binary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benjaminjnoack/binary/issues"
+  },
+  "homepage": "https://github.com/benjaminjnoack/binary#readme",
+  "description": ""
+}
