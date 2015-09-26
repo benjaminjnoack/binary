@@ -1,2 +1,4 @@
-angular.module('binary', [])
-	.controller('BinaryCtrl', BinaryCtrl);
+angular.module('binary', ['ui.router'])
+	.controller('BinaryCtrl', BinaryCtrl)
+	.config(urlRouting)
+	.config(stateDefinition);

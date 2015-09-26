@@ -3,7 +3,7 @@ var BinaryCtrl = function ($scope) {
 		baseTwo: '',
 		baseTen: 0
 	}
-
+	//add error for going above or below limit
 	var increase = function () {
 		if ($scope.model.baseTen < 255) {
 			$scope.model.baseTen += 1;
