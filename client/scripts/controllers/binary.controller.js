@@ -1,5 +1,39 @@
 var BinaryCtrl = function ($scope) {
 	
+	var plusDown = false;
+	var plusInterval = null;
+	var minusDown = false;
+	var minusInterval = null;
+	var debounce = 100;
+	var interation = 100;
+
+	$('button.glyphicon-plus').mousedown(function(event) {
+		plusDown = true;
+		increase();
+		
+		setTimeout(function() {
+			if (plusDown) {
+				plusInterval = setInterval(increase, interation);
+			}
+		}, debounce)
+	}).mouseup(function(event) {
+		plusDown = false;
+		clearTimeout(plusInterval);
+	});
+
+	$('button.glyphicon-minus').mousedown(function(event) {
+		minusDown = true;
+		decrease();
+		
+		setTimeout(function() {
+			if (minusDown) {
+				minusInterval = setInterval(decrease, interation);
+			}
+		}, debounce)
+	}).mouseup(function(event) {
+		minusDown = false;
+		clearTimeout(minusInterval);
+	});
 
 	var prependZeros = function (binaryString) {
 		for (var i = 0, len = (8 - binaryString.length); i < len; i++) {
@@ -10,16 +44,20 @@ var BinaryCtrl = function ($scope) {
 	}
 
 	var increase = function () {
+		console.log("increasing");
 		if ($scope.model.baseTen < 255) {
 			$scope.model.baseTen += 1;
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
+			$scope.$apply();
 		} 
 	}
 
 	var decrease = function () {
+		console.log("decreasing");
 		if ($scope.model.baseTen > 0) {
 			$scope.model.baseTen -= 1;
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
+			$scope.$apply();
 		} 
 	}
 
