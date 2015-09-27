@@ -1,9 +1,14 @@
 var BinaryCtrl = function ($scope) {
-	$scope.model = {
-		baseTwo: '',
-		baseTen: 0
+	
+
+	var prependZeros = function (binaryString) {
+		for (var i = 0, len = (8 - binaryString.length); i < len; i++) {
+			binaryString = "0" + binaryString;
+		};
+
+		return binaryString;
 	}
-	//add error for going above or below limit
+
 	var increase = function () {
 		if ($scope.model.baseTen < 255) {
 			$scope.model.baseTen += 1;
@@ -21,15 +26,43 @@ var BinaryCtrl = function ($scope) {
 	var calculateBinary = function (num) {
 		var binaryString = (num >>> 0).toString(2);
 		
-		for (var i = 0, len = (8 - binaryString.length); i < len; i++) {
-			binaryString = "0" + binaryString;
-		};
-
-		return binaryString;
+		return prependZeros(binaryString);
 	}
 
-	$scope.testing = function () {
-		return false;
+	$scope.model = {
+		baseTwo: calculateBinary(0),
+		baseTen: 0
+	}
+
+	$scope.baseTenCheck = {
+		test: function (value) {
+			var numValue = parseInt(value, 10);
+			return value >= 0 && value <= 255;
+		}
+	}
+
+	$scope.baseTwoCheck = {
+		regEx: /^[01]{1,8}$/,
+		test: function (value) {
+			if (!value) {
+				value = $scope.model.baseTwo;
+			}
+			return this.regEx.test(value);
+		}
+	}
+
+	$scope.baseTenChange = function () {
+		if (true) {
+			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);	
+		}
+	}
+
+	$scope.baseTwoChange = function () {
+
+		if ($scope.baseTwoCheck.test()) {
+			$scope.model.baseTwo = prependZeros($scope.model.baseTwo);
+			$scope.model.baseTen = parseInt($scope.model.baseTwo, 2);
+		}
 	}
 
 	$scope.increase = increase;
