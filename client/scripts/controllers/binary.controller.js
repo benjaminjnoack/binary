@@ -44,7 +44,6 @@ var BinaryCtrl = function ($scope) {
 	}
 
 	var increase = function () {
-		console.log("increasing");
 		if ($scope.model.baseTen < 255) {
 			$scope.model.baseTen += 1;
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
@@ -53,7 +52,6 @@ var BinaryCtrl = function ($scope) {
 	}
 
 	var decrease = function () {
-		console.log("decreasing");
 		if ($scope.model.baseTen > 0) {
 			$scope.model.baseTen -= 1;
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
@@ -74,6 +72,9 @@ var BinaryCtrl = function ($scope) {
 
 	$scope.baseTenCheck = {
 		test: function (value) {
+			if (!value) {
+				value = $scope.model.baseTen;
+			}
 			var numValue = parseInt(value, 10);
 			return value >= 0 && value <= 255;
 		}
@@ -90,7 +91,7 @@ var BinaryCtrl = function ($scope) {
 	}
 
 	$scope.baseTenChange = function () {
-		if (true) {
+		if ($scope.baseTenCheck.test()) {
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);	
 		}
 	}
