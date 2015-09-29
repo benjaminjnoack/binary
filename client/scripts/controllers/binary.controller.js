@@ -68,7 +68,7 @@ var BinaryCtrl = function ($scope) {
 	$scope.model = {
 		baseTwo: calculateBinary(0),
 		baseTen: 0
-	}
+	};
 
 	$scope.baseTenCheck = {
 		test: function (value) {
@@ -92,15 +92,15 @@ var BinaryCtrl = function ($scope) {
 
 	$scope.baseTenChange = function () {
 		if ($scope.baseTenCheck.test()) {
+			$scope.model.baseTen = parseInt($scope.model.baseTen, 10);
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);	
 		}
 	}
 
 	$scope.baseTwoChange = function () {
-
 		if ($scope.baseTwoCheck.test()) {
-			$scope.model.baseTwo = prependZeros($scope.model.baseTwo);
 			$scope.model.baseTen = parseInt($scope.model.baseTwo, 2);
+			$scope.model.baseTwo = prependZeros($scope.model.baseTwo);
 		}
 	}
 
