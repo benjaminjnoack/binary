@@ -41,7 +41,7 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 	};
 
 	$scope.baseTenCheck = {
-		regEx: /\d+/,//would be wicked to write 0-255 in regEx!!!
+		regEx: /\d{1,3}/,//would be wicked to write 0-255 in regEx!!!
 		test: function (value) {
 			if (!this.regEx.test(value)) return false;
 			var numValue = parseInt(value, 10);
