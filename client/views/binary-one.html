@@ -30,7 +30,7 @@
 							ng-model="model.baseTen"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTenCheck" 
-							ng-change="baseTenChange()"
+							ng-change="baseTenChange(binaryForm.baseTen.$valid)"
 							required
 						/>
 						<div ng-show="binaryForm.baseTen.$touched && binaryForm.baseTen.$error.required">required</div>
@@ -52,7 +52,7 @@
 							ng-model="model.baseTwo"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTwoCheck"
-							ng-change="baseTwoChange()"
+							ng-change="baseTwoChange(binaryForm.baseTwo.$valid)"
 							required
 						/>
 						<div ng-show="binaryForm.baseTwo.$touched && binaryForm.baseTwo.$error.required">Required</div>

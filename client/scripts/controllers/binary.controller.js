@@ -7,34 +7,6 @@ var BinaryCtrl = function ($scope) {
 	var debounce = 100;
 	var interation = 100;
 
-	$('button.glyphicon-plus').mousedown(function(event) {
-		plusDown = true;
-		increase();
-		
-		setTimeout(function() {
-			if (plusDown) {
-				plusInterval = setInterval(increase, interation);
-			}
-		}, debounce)
-	}).mouseup(function(event) {
-		plusDown = false;
-		clearTimeout(plusInterval);
-	});
-
-	$('button.glyphicon-minus').mousedown(function(event) {
-		minusDown = true;
-		decrease();
-		
-		setTimeout(function() {
-			if (minusDown) {
-				minusInterval = setInterval(decrease, interation);
-			}
-		}, debounce)
-	}).mouseup(function(event) {
-		minusDown = false;
-		clearTimeout(minusInterval);
-	});
-
 	var prependZeros = function (binaryString) {
 		for (var i = 0, len = (8 - binaryString.length); i < len; i++) {
 			binaryString = "0" + binaryString;
@@ -90,15 +62,15 @@ var BinaryCtrl = function ($scope) {
 		}
 	}
 
-	$scope.baseTenChange = function () {
-		if ($scope.baseTenCheck.test()) {
+	$scope.baseTenChange = function (valid) {
+		if (valid) {
 			$scope.model.baseTen = parseInt($scope.model.baseTen, 10);
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);	
 		}
 	}
 
-	$scope.baseTwoChange = function () {
-		if ($scope.baseTwoCheck.test()) {
+	$scope.baseTwoChange = function (valid) {
+		if (valid) {
 			$scope.model.baseTen = parseInt($scope.model.baseTwo, 2);
 			$scope.model.baseTwo = prependZeros($scope.model.baseTwo);
 		}
@@ -106,4 +78,34 @@ var BinaryCtrl = function ($scope) {
 
 	$scope.increase = increase;
 	$scope.decrease = decrease;
+
+
+//resolve or some angular magic
+	$('button.glyphicon-plus').mousedown(function(event) {
+		plusDown = true;
+		increase();
+		
+		setTimeout(function() {
+			if (plusDown) {
+				plusInterval = setInterval(increase, interation);
+			}
+		}, debounce)
+	}).mouseup(function(event) {
+		plusDown = false;
+		clearTimeout(plusInterval);
+	});
+
+	$('button.glyphicon-minus').mousedown(function(event) {
+		minusDown = true;
+		decrease();
+		
+		setTimeout(function() {
+			if (minusDown) {
+				minusInterval = setInterval(decrease, interation);
+			}
+		}, debounce)
+	}).mouseup(function(event) {
+		minusDown = false;
+		clearTimeout(minusInterval);
+	});
 }
