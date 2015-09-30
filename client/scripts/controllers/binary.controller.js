@@ -10,7 +10,7 @@ var BinaryCtrl = function ($scope) {
 	var prependZeros = function (binaryString) {
 		for (var i = 0, len = (8 - binaryString.length); i < len; i++) {
 			binaryString = "0" + binaryString;
-		};
+		}
 
 		return binaryString;
 	}
@@ -19,7 +19,6 @@ var BinaryCtrl = function ($scope) {
 		if ($scope.model.baseTen < 255) {
 			$scope.model.baseTen += 1;
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
-			$scope.$apply();
 		} 
 	}
 
@@ -27,13 +26,11 @@ var BinaryCtrl = function ($scope) {
 		if ($scope.model.baseTen > 0) {
 			$scope.model.baseTen -= 1;
 			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
-			$scope.$apply();
 		} 
 	}
 
 	var calculateBinary = function (num) {
-		var binaryString = (num >>> 0).toString(2);
-		
+		var binaryString = (num >>> 0).toString(2);	
 		return prependZeros(binaryString);
 	}
 
@@ -74,14 +71,9 @@ var BinaryCtrl = function ($scope) {
 			$scope.model.baseTen = parseInt($scope.model.baseTwo, 2);
 			$scope.model.baseTwo = prependZeros($scope.model.baseTwo);
 		}
-	}
+	};
 
-	$scope.increase = increase;
-	$scope.decrease = decrease;
-
-
-//resolve or some angular magic
-	$('button.glyphicon-plus').mousedown(function(event) {
+	$scope.plusDown = function () {
 		plusDown = true;
 		increase();
 		
@@ -89,13 +81,15 @@ var BinaryCtrl = function ($scope) {
 			if (plusDown) {
 				plusInterval = setInterval(increase, interation);
 			}
-		}, debounce)
-	}).mouseup(function(event) {
+		}, debounce);
+	};
+
+	$scope.plusUp = function () {
 		plusDown = false;
 		clearTimeout(plusInterval);
-	});
+	};
 
-	$('button.glyphicon-minus').mousedown(function(event) {
+	$scope.minusDown = function () {
 		minusDown = true;
 		decrease();
 		
@@ -103,9 +97,16 @@ var BinaryCtrl = function ($scope) {
 			if (minusDown) {
 				minusInterval = setInterval(decrease, interation);
 			}
-		}, debounce)
-	}).mouseup(function(event) {
+		}, debounce);
+	};
+
+	$scope.minusUp = function () {
 		minusDown = false;
 		clearTimeout(minusInterval);
-	});
+	};
+
+	$scope.increase = increase;
+	$scope.decrease = decrease;
+
+	
 }
