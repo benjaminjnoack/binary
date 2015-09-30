@@ -1,9 +1,9 @@
-var BinaryCtrl = function ($scope) {
+var BinaryCtrl = function ($scope, $interval, $timeout) {
 	
 	var plusDown = false;
-	var plusInterval = null;
+	var plusInterval = undefined;
 	var minusDown = false;
-	var minusInterval = null;
+	var minusInterval = undefined;
 	var debounce = 100;
 	var interation = 100;
 
@@ -40,10 +40,12 @@ var BinaryCtrl = function ($scope) {
 	};
 
 	$scope.baseTenCheck = {
+		regEx: /\d+/,
 		test: function (value) {
 			if (!value) {
 				value = $scope.model.baseTen;
 			}
+			if (!this.regEx.test(value)) return false;
 			var numValue = parseInt(value, 10);
 			return value >= 0 && value <= 255;
 		}
@@ -77,36 +79,40 @@ var BinaryCtrl = function ($scope) {
 		plusDown = true;
 		increase();
 		
-		setTimeout(function() {
+		$timeout(function() {
 			if (plusDown) {
-				plusInterval = setInterval(increase, interation);
+				plusInterval = $interval(increase, interation);
 			}
 		}, debounce);
 	};
 
 	$scope.plusUp = function () {
 		plusDown = false;
-		clearTimeout(plusInterval);
+		if (angular.isDefined(plusInterval)) {
+			$interval.cancel(plusInterval);
+			plusInterval = undefined;
+		}
 	};
 
 	$scope.minusDown = function () {
 		minusDown = true;
 		decrease();
 		
-		setTimeout(function() {
+		$timeout(function() {
 			if (minusDown) {
-				minusInterval = setInterval(decrease, interation);
+				minusInterval = $interval(decrease, interation);
 			}
 		}, debounce);
 	};
 
 	$scope.minusUp = function () {
 		minusDown = false;
-		clearTimeout(minusInterval);
+		if (angular.isDefined(minusInterval)) {
+			$interval.cancel(minusInterval);
+			minusInterval = undefined;
+		}
 	};
 
 	$scope.increase = increase;
 	$scope.decrease = decrease;
-
-	
 }
