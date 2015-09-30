@@ -1,3 +1,7 @@
+//GOAL: uncouple methods from model
+//branch: make these two directives
+
+
 var BinaryCtrl = function ($scope, $interval, $timeout) {
 	
 	var plusDown = false;
@@ -13,65 +17,58 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 		}
 
 		return binaryString;
-	}
+	};
 
 	var increase = function () {
-		if ($scope.model.baseTen < 255) {
-			$scope.model.baseTen += 1;
-			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
+		var model = $scope.models.demo;
+		if (model.baseTen < 255) {
+			model.baseTen += 1;
+			model.baseTwo = calculateBinary(model.baseTen);
 		} 
-	}
+	};
 
 	var decrease = function () {
-		if ($scope.model.baseTen > 0) {
-			$scope.model.baseTen -= 1;
-			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);
+		var model = $scope.models.demo;
+		if (model.baseTen > 0) {
+			model.baseTen -= 1;
+			model.baseTwo = calculateBinary(model.baseTen);
 		} 
-	}
+	};
 
 	var calculateBinary = function (num) {
 		var binaryString = (num >>> 0).toString(2);	
 		return prependZeros(binaryString);
-	}
-
-	$scope.model = {
-		baseTwo: calculateBinary(0),
-		baseTen: 0
 	};
 
 	$scope.baseTenCheck = {
-		regEx: /\d+/,
+		regEx: /\d+/,//would be wicked to write 0-255 in regEx!!!
 		test: function (value) {
-			if (!value) {
-				value = $scope.model.baseTen;
-			}
 			if (!this.regEx.test(value)) return false;
 			var numValue = parseInt(value, 10);
-			return value >= 0 && value <= 255;
+			return numValue >= 0 && numValue <= 255;
 		}
 	}
 
 	$scope.baseTwoCheck = {
 		regEx: /^[01]{1,8}$/,
 		test: function (value) {
-			if (!value) {
-				value = $scope.model.baseTwo;
-			}
 			return this.regEx.test(value);
 		}
 	}
 
-	$scope.baseTenChange = function (valid) {
+	$scope.baseTenChange = function (valid, model) {
 		if (valid) {
-			$scope.model.baseTen = parseInt($scope.model.baseTen, 10);
-			$scope.model.baseTwo = calculateBinary($scope.model.baseTen);	
+			var model = $scope.models[model];
+			model.baseTen = parseInt(model.baseTen, 10);
+			model.baseTwo = calculateBinary(model.baseTen);
 		}
-	}
+	};
 
-	$scope.baseTwoChange = function (valid) {
+	$scope.baseTwoChange = function (valid, model) {
 		if (valid) {
-			$scope.model.baseTen = parseInt($scope.model.baseTwo, 2);
-			$scope.model.baseTwo = prependZeros($scope.model.baseTwo);
+			var model = $scope.models[model];
+			model.baseTen = parseInt(model.baseTwo, 2);
+			model.baseTwo = prependZeros(model.baseTwo);
 		}
 	};
 
@@ -115,4 +112,18 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 
 	$scope.increase = increase;
 	$scope.decrease = decrease;
+	$scope.models = {
+		demo: {
+			baseTwo: calculateBinary(0),
+			baseTen: 0,
+		},
+		augend: {
+			baseTwo: calculateBinary(0),
+			baseTen: 0
+		},
+		addend: {
+			baseTwo: calculateBinary(0),
+			baseTen: 0
+		}
+	};
 }

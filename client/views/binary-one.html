@@ -31,20 +31,20 @@
 					</div>
 					
 					<div class="col-md-6">
-						<label for="baseTen">Base Ten</label>
+						<label for="demoBaseTen">Base Ten</label>
 						<input
 							type="text" 
 							class="form-control input-lg" 
-							name="baseTen"
-							id="baseTen"
-							ng-model="model.baseTen"
+							name="demoBaseTen"
+							id="demoBaseTen"
+							ng-model="models.demo.baseTen"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTenCheck" 
-							ng-change="baseTenChange(binaryDemo.baseTen.$valid)"
+							ng-change="baseTenChange(binaryDemo.demoBaseTen.$valid, 'demo')"
 							required
 						/>
-						<div ng-show="binaryDemo.baseTen.$touched && binaryDemo.baseTen.$error.required">required</div>
-						<div ng-show="binaryDemo.baseTen.$touched && binaryDemo.baseTen.$error.pattern">Integer value between 0 and 255</div>
+						<div ng-show="binaryDemo.demoBaseTen.$touched && binaryDemo.demoBaseTen.$error.required">required</div>
+						<div ng-show="binaryDemo.demoBaseTen.$touched && binaryDemo.demoBaseTen.$error.pattern">Integer value between 0 and 255</div>
 					</div>
 				
 				</div>	
@@ -53,20 +53,20 @@
 			<div class="form-group col-md-3">
 				<div class="row">
 					<div class="col-md-6">
-						<label for="baseTwo" class="text-center">Base Two</label>
+						<label for="demoBaseTwo" class="text-center">Base Two</label>
 						<input 
 							type="text" 
 							class="form-control input-lg" 
-							name="baseTwo"
-							id="baseTwo"
-							ng-model="model.baseTwo"
+							name="demoBaseTwo"
+							id="demoBaseTwo"
+							ng-model="models.demo.baseTwo"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTwoCheck"
-							ng-change="baseTwoChange(binaryDemo.baseTwo.$valid)"
+							ng-change="baseTwoChange(binaryDemo.demoBaseTwo.$valid, 'demo')"
 							required
 						/>
-						<div ng-show="binaryDemo.baseTwo.$touched && binaryDemo.baseTwo.$error.required">Required</div>
-						<div ng-show="binaryDemo.baseTwo.$touched && binaryDemo.baseTwo.$error.pattern">One or more zeros or ones</div>
+						<div ng-show="binaryDemo.demoBaseTwo.$touched && binaryDemo.demoBaseTwo.$error.required">Required</div>
+						<div ng-show="binaryDemo.demoBaseTwo.$touched && binaryDemo.demoBaseTwo.$error.pattern">One or more zeros or ones</div>
 					</div>
 				</div>
 			</div>		
@@ -83,20 +83,20 @@
 				<div class="row">
 					
 					<div class="col-md-offset-6 col-md-6">
-						<label for="baseTen">Base Ten</label>
+						<label for="augendBaseTen">Base Ten</label>
 						<input
 							type="text" 
 							class="form-control input-lg" 
-							name="baseTen"
-							id="baseTen"
-							ng-model="model.baseTen"
+							name="augendBaseTen"
+							id="augendBaseTen"
+							ng-model="models.augend.baseTen"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTenCheck" 
-							ng-change="baseTenChange(binaryDemo.baseTen.$valid)"
+							ng-change="baseTenChange(binaryAddition.augendBaseTen.$valid, 'augend')"
 							required
 						/>
-						<div ng-show="binaryDemo.baseTen.$touched && binaryDemo.baseTen.$error.required">required</div>
-						<div ng-show="binaryDemo.baseTen.$touched && binaryDemo.baseTen.$error.pattern">Integer value between 0 and 255</div>
+						<div ng-show="binaryAddition.augendBaseTen.$touched && binaryAddition.augendBaseTen.$error.required">required</div>
+						<div ng-show="binaryAddition.augendBaseTen.$touched && binaryAddition.augendBaseTen.$error.pattern">Integer value between 0 and 255</div>
 					</div>
 				
 				</div>	
@@ -105,20 +105,20 @@
 			<div class="form-group col-md-3">
 				<div class="row">
 					<div class="col-md-6">
-						<label for="baseTwo" class="text-center">Base Two</label>
+						<label for="augendBaseTwo" class="text-center">Base Two</label>
 						<input 
 							type="text" 
 							class="form-control input-lg" 
-							name="baseTwo"
-							id="baseTwo"
-							ng-model="model.baseTwo"
+							name="augendBaseTwo"
+							id="augendBaseTwo"
+							ng-model="models.augend.baseTwo"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTwoCheck"
-							ng-change="baseTwoChange(binaryDemo.baseTwo.$valid)"
+							ng-change="baseTwoChange(binaryAddition.augendBaseTwo.$valid, 'augend')"
 							required
 						/>
-						<div ng-show="binaryDemo.baseTwo.$touched && binaryDemo.baseTwo.$error.required">Required</div>
-						<div ng-show="binaryDemo.baseTwo.$touched && binaryDemo.baseTwo.$error.pattern">One or more zeros or ones</div>
+						<div ng-show="binaryAddition.augendBaseTwo.$touched && binaryAddition.augendBaseTwo.$error.required">Required</div>
+						<div ng-show="binaryAddition.augendBaseTwo.$touched && binaryAddition.augendBaseTwo.$error.pattern">One or more zeros or ones</div>
 					</div>
 				</div>
 			</div>		
@@ -141,15 +141,15 @@
 						<input
 							type="text" 
 							class="form-control input-lg" 
-							name="baseTen"
-							ng-model="model.baseTen"
+							name="addendBaseTen"
+							ng-model="models.addend.baseTen"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTenCheck" 
-							ng-change="baseTenChange(binaryDemo.baseTen.$valid)"
+							ng-change="baseTenChange(binaryAddition.addendBaseTen.$valid, 'addend')"
 							required
 						/>
-						<div ng-show="binaryDemo.baseTen.$touched && binaryDemo.baseTen.$error.required">required</div>
-						<div ng-show="binaryDemo.baseTen.$touched && binaryDemo.baseTen.$error.pattern">Integer value between 0 and 255</div>
+						<div ng-show="binaryAddition.addendBaseTen.$touched && binaryAddition.addendBaseTen.$error.required">required</div>
+						<div ng-show="binaryAddition.addendBaseTen.$touched && binaryAddition.addendBaseTen.$error.pattern">Integer value between 0 and 255</div>
 					</div>
 				</div>	
 			</div>			
@@ -160,15 +160,15 @@
 						<input 
 							type="text" 
 							class="form-control input-lg" 
-							name="baseTwo"
-							ng-model="model.baseTwo"
+							name="addendBaseTwo"
+							ng-model="models.addend.baseTwo"
 							ng-model-options="{ updateOn: 'blur' }"
 							ng-pattern="baseTwoCheck"
-							ng-change="baseTwoChange(binaryDemo.baseTwo.$valid)"
+							ng-change="baseTwoChange(binaryAddition.addendBaseTwo.$valid, 'addend')"
 							required
 						/>
-						<div ng-show="binaryDemo.baseTwo.$touched && binaryDemo.baseTwo.$error.required">Required</div>
-						<div ng-show="binaryDemo.baseTwo.$touched && binaryDemo.baseTwo.$error.pattern">One or more zeros or ones</div>
+						<div ng-show="binaryAddition.addendBaseTwo.$touched && binaryAddition.addendBaseTwo.$error.required">Required</div>
+						<div ng-show="binaryAddition.addendBaseTwo.$touched && binaryAddition.addendBaseTwo.$error.pattern">One or more zeros or ones</div>
 					</div>
 				</div>
 			</div>		
