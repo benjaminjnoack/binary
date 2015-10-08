@@ -18,3 +18,7 @@ button.btn-success > span.glyphicon {
 button.btn-danger > span.glyphicon {
 	color: #000;
 }
+
+.btn-default.focus, .btn-default:focus {
+	background-color: #fff;
+}

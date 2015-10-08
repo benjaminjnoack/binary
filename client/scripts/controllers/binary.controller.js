@@ -11,6 +11,9 @@ var BinaryCtrl = function ($scope, $state) {
 	$scope.urls = {
 		addition: '/static/views/binary.addition.html',
 		and: '/static/views/binary.and.html',
-		demo: '/static/views/binary.demo.html'
+		demo: '/static/views/binary.demo.html',
+		nor: '/static/views/binary.nor.html',
+		or: '/static/views/binary.or.html',
+		xor: '/static/views/binary.xor.html'
 	};
 };
