@@ -36,12 +36,18 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 	};
 
 	var calculateBinary = function (num) {
+
 		var binaryString = (num >>> 0).toString(2);	
 		return prependZeros(binaryString);
 	};
 
+	var updateSums = function () {
+		console.log()
+		$scope.models.baseTenSum = $scope.models.augend.baseTen + $scope.models.addend.baseTen;
+	}
+
 	$scope.baseTenCheck = {
-		regEx: /[0-2]{1}[\d]{0,1}[\d]{0,1}/,//would be wicked to write 0-255 in regEx!!!
+		regEx: /[\d]{1,3}/,
 		test: function (value) {
 			if (!this.regEx.test(value)) return false;
 			var numValue = parseInt(value, 10);
@@ -56,19 +62,25 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 		}
 	}
 
-	$scope.baseTenChange = function (valid, model) {
+	$scope.baseTenChange = function (valid, modelName) {
 		if (valid) {
-			var model = $scope.models[model];
+			var model = $scope.models[modelName];
 			model.baseTen = parseInt(model.baseTen, 10);
 			model.baseTwo = calculateBinary(model.baseTen);
+			if (modelName === 'augend' || modelName === 'addend') {
+				updateSums();
+			}
 		}
 	};
 
-	$scope.baseTwoChange = function (valid, model) {
+	$scope.baseTwoChange = function (valid, modelName) {
 		if (valid) {
-			var model = $scope.models[model];
+			var model = $scope.models[modelName];
 			model.baseTen = parseInt(model.baseTwo, 2);
 			model.baseTwo = prependZeros(model.baseTwo);
+			if (modelName === 'augend' || modelName === 'addend') {
+				updateSums();
+			}
 		}
 	};
 
@@ -124,6 +136,8 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 		addend: {
 			baseTwo: calculateBinary(0),
 			baseTen: 0
-		}
+		},
+		baseTenSum: 0,
+		baseTwoSum: 0
 	};
 }
