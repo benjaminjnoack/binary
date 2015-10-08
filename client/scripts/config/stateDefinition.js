@@ -3,7 +3,7 @@ var stateDefinition = function ($stateProvider) {
 	
 	var getTemp = function (viewName) {
 		return viewDir + viewName + ".html";
-	}
+	};
 
 	$stateProvider
 		.state('home', {
@@ -13,11 +13,12 @@ var stateDefinition = function ($stateProvider) {
 		.state('binary', {//place holder state, should be the main content wrapper for this tutorial
 			abstract: true,
 			url: '/binary',
-			template: '<ui-view/>'
+			templateUrl: getTemp('binary'),
+			controller: 'BinaryCtrl'
 		})
 		.state('binary.one', {
 			url: '/one',
-			templateUrl: getTemp('binary-one'),
-			controller: 'BinaryCtrl'//could use as syntax, or a provider like the templatez
+			templateUrl: getTemp('binary.one'),
+			controller: 'BinaryOneCtrl'//could use as syntax, or a provider like the templatez
 		});
 }

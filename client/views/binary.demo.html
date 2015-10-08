@@ -1,0 +1,74 @@
+<form name="binaryDemo">
+		
+	<div class="row form-inline">
+		
+		<div class="form-group col-md-offset-3 col-md-3">
+			<div class="row">
+				<div class="col-md-4">
+					<!-- dummy -->
+				</div>
+				<div class="form-group col-md-2">
+					<div class="btn-group-vertical">
+						<div class="row">
+							<div class="col-md-offset-4 col-md-4">
+								<label>+/-</label>
+								<button 
+									type="button" 
+									class="btn btn-default btn-xs glyphicon glyphicon-plus"
+									ng-mousedown="plusDown()"
+									ng-mouseup="plusUp()"
+								></button>
+						  		<button 
+						  			type="button" 
+						  			class="btn btn-default btn-xs glyphicon glyphicon-minus"
+						  			ng-mousedown="minusDown()"
+						  			ng-mouseup="minusUp()"
+						  		></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<label for="demoBaseTen">Base Ten</label>
+					<input
+						type="text" 
+						class="form-control input-lg" 
+						name="demoBaseTen"
+						id="demoBaseTen"
+						ng-model="models.demo.baseTen"
+						ng-model-options="{ updateOn: 'blur' }"
+						ng-pattern="baseTenCheck" 
+						ng-change="baseTenChange(binaryDemo.demoBaseTen.$valid, 'demo')"
+						required
+					/>
+					<div ng-show="binaryDemo.demoBaseTen.$touched && binaryDemo.demoBaseTen.$error.required">required</div>
+					<div ng-show="binaryDemo.demoBaseTen.$touched && binaryDemo.demoBaseTen.$error.pattern">Integer value between 0 and 255</div>
+				</div>
+			
+			</div>	
+		</div>			
+			
+		<div class="form-group col-md-3">
+			<div class="row">
+				<div class="col-md-6">
+					<label for="demoBaseTwo" class="text-center">Base Two</label>
+					<input 
+						type="text" 
+						class="form-control input-lg text-right" 
+						name="demoBaseTwo"
+						id="demoBaseTwo"
+						ng-model="models.demo.baseTwo"
+						ng-model-options="{ updateOn: 'blur' }"
+						ng-pattern="baseTwoCheck"
+						ng-change="baseTwoChange(binaryDemo.demoBaseTwo.$valid, 'demo')"
+						required
+					/>
+					<div ng-show="binaryDemo.demoBaseTwo.$touched && binaryDemo.demoBaseTwo.$error.required">Required</div>
+					<div ng-show="binaryDemo.demoBaseTwo.$touched && binaryDemo.demoBaseTwo.$error.pattern">One or more zeros or ones</div>
+				</div>
+			</div>
+		</div>		
+	
+	</div>
+</form>

@@ -1,0 +1,127 @@
+<form name="binaryAddition">
+	<div class="row form-inline" id="augend">
+		
+		<div class="form-group col-md-offset-3 col-md-3">
+			<div class="row">
+				
+				<div class="col-md-offset-6 col-md-6">
+					<label for="augendBaseTen">Base Ten</label>
+					<input
+						type="text" 
+						class="form-control input-lg" 
+						name="augendBaseTen"
+						id="augendBaseTen"
+						ng-model="models.augend.baseTen"
+						ng-model-options="{ updateOn: 'blur' }"
+						ng-pattern="baseTenCheck" 
+						ng-change="baseTenChange(binaryAddition.augendBaseTen.$valid, 'augend')"
+						required
+					/>
+					<div ng-show="binaryAddition.augendBaseTen.$touched && binaryAddition.augendBaseTen.$error.required">required</div>
+					<div ng-show="binaryAddition.augendBaseTen.$touched && binaryAddition.augendBaseTen.$error.pattern">Integer value between 0 and 255</div>
+				</div>
+			
+			</div>	
+		</div>			
+			
+		<div class="form-group col-md-3">
+			<div class="row">
+				<div class="col-md-6">
+					<label for="augendBaseTwo" class="text-center">Base Two</label>
+					<input 
+						type="text" 
+						class="form-control input-lg text-right" 
+						name="augendBaseTwo"
+						id="augendBaseTwo"
+						ng-model="models.augend.baseTwo"
+						ng-model-options="{ updateOn: 'blur' }"
+						ng-pattern="baseTwoCheck"
+						ng-change="baseTwoChange(binaryAddition.augendBaseTwo.$valid, 'augend')"
+						required
+					/>
+					<div ng-show="binaryAddition.augendBaseTwo.$touched && binaryAddition.augendBaseTwo.$error.required">Required</div>
+					<div ng-show="binaryAddition.augendBaseTwo.$touched && binaryAddition.augendBaseTwo.$error.pattern">One or more zeros or ones</div>
+				</div>
+			</div>
+		</div>		
+	
+	</div>
+
+	<div class="row form-inline" id="addend">
+		
+		<div class="form-group col-md-offset-3 col-md-3">
+			<div class="row">
+				<div class="col-md-4">
+					<!-- dummy -->
+				</div>
+				<div class="col-md-2">
+					<button type="button" class="btn btn-default btn-lg" disabled="disabled">
+					  	<span class="glyphicon glyphicon-plus" id="addition" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="col-md-6">
+					<input
+						type="text" 
+						class="form-control input-lg" 
+						name="addendBaseTen"
+						ng-model="models.addend.baseTen"
+						ng-model-options="{ updateOn: 'blur' }"
+						ng-pattern="baseTenCheck" 
+						ng-change="baseTenChange(binaryAddition.addendBaseTen.$valid, 'addend')"
+						required
+					/>
+					<div ng-show="binaryAddition.addendBaseTen.$touched && binaryAddition.addendBaseTen.$error.required">required</div>
+					<div ng-show="binaryAddition.addendBaseTen.$touched && binaryAddition.addendBaseTen.$error.pattern">Integer value between 0 and 255</div>
+				</div>
+			</div>	
+		</div>			
+			
+		<div class="form-group col-md-3">
+			<div class="row">
+				<div class="col-md-6">
+					<input 
+						type="text" 
+						class="form-control input-lg text-right" 
+						name="addendBaseTwo"
+						ng-model="models.addend.baseTwo"
+						ng-model-options="{ updateOn: 'blur' }"
+						ng-pattern="baseTwoCheck"
+						ng-change="baseTwoChange(binaryAddition.addendBaseTwo.$valid, 'addend')"
+						required
+					/>
+					<div ng-show="binaryAddition.addendBaseTwo.$touched && binaryAddition.addendBaseTwo.$error.required">Required</div>
+					<div ng-show="binaryAddition.addendBaseTwo.$touched && binaryAddition.addendBaseTwo.$error.pattern">One or more zeros or ones</div>
+				</div>
+			</div>
+		</div>		
+	
+	</div>
+
+	<div class="row form-inline" id="sum">
+		
+		<div class="form-group col-md-offset-3 col-md-3">
+			<div class="row">
+				<div class="col-md-offset-6 col-md-6">
+					<input type="text" 
+					class="form-control input-lg" 
+					id="baseTenSum" 
+					disabled="disabled" 
+					ng-model="models.sum.baseTen"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group col-md-3">
+			<div class="row">
+				<div class="col-md-6">
+					<input type="text" 
+					class="form-control input-lg text-right" 
+					id="baseTwoSum" 
+					disabled="disabled" 
+					ng-model="models.sum.baseTwo"/>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</form>
