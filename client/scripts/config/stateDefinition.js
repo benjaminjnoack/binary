@@ -16,9 +16,13 @@ var stateDefinition = function ($stateProvider) {
 			templateUrl: getTemp('binary'),
 			controller: 'BinaryCtrl'
 		})
+		.state('binary.zero', {
+			url: '/zero',
+			templateUrl: getTemp('binary.zero'),
+			controller: 'BinaryZeroCtrl'//could use as syntax, or a provider like the templatez
+		})
 		.state('binary.one', {
 			url: '/one',
-			templateUrl: getTemp('binary.one'),
-			controller: 'BinaryOneCtrl'//could use as syntax, or a provider like the templatez
+			template: '<p>Hello World</p>'
 		});
 }

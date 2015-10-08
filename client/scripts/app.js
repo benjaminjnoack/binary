@@ -1,6 +1,6 @@
 angular
 	.module('binary', ['ui.router'])
 	.controller('BinaryCtrl', BinaryCtrl)
-	.controller('BinaryOneCtrl', BinaryOneCtrl)
+	.controller('BinaryZeroCtrl', BinaryZeroCtrl)
 	.config(urlRouting)
 	.config(stateDefinition);

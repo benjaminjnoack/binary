@@ -1,8 +1,4 @@
-//GOAL: uncouple methods from model
-//branch: make these two directives
-
-
-var BinaryOneCtrl = function ($scope, $interval, $timeout) {
+var BinaryZeroCtrl = function ($scope, $interval, $timeout) {
 	
 	var plusDown = false;
 	var plusInterval = undefined;

@@ -1,1 +1,17 @@
-<ui-view/>
+<div class="jumbotron">
+	<div class="page-header">
+		<h1>Binary <small>{{ page }}</small></h1>
+	</div>
+	<ui-view/>
+</div>
+
+<nav>
+	<ul class="pager">
+		<li class="previous" ng-show="page !== 0">
+			<a ng-click="navigate(page - 1)"><span aria-hidden="true">&larr;</span> Back</a>
+		</li>
+		<li class="next" ng-show="pages[page + 1]">
+			<a ng-click="navigate(page + 1)">Next <span aria-hidden="true">&rarr;</span></a>
+		</li>
+	</ul>
+</nav>
