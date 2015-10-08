@@ -138,9 +138,4 @@ var BinaryZeroCtrl = function ($scope, $interval, $timeout) {
 			baseTen: 0
 		}
 	};
-
-	$scope.urls = {
-		demo: '/static/views/binary.demo.html',
-		addition: '/static/views/binary.addition.html'
-	};
 }

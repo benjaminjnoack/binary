@@ -10,7 +10,7 @@ var stateDefinition = function ($stateProvider) {
 			url: '/home',
 			template: '<p>Hello World</p>'
 		})
-		.state('binary', {//place holder state, should be the main content wrapper for this tutorial
+		.state('binary', {
 			abstract: true,
 			url: '/binary',
 			templateUrl: getTemp('binary'),
@@ -19,10 +19,11 @@ var stateDefinition = function ($stateProvider) {
 		.state('binary.zero', {
 			url: '/zero',
 			templateUrl: getTemp('binary.zero'),
-			controller: 'BinaryZeroCtrl'//could use as syntax, or a provider like the templatez
+			controller: 'BinaryZeroCtrl'
 		})
 		.state('binary.one', {
 			url: '/one',
-			template: '<p>Hello World</p>'
+			templateUrl: getTemp('binary.one'),
+			controller: 'BinaryOneCtrl'
 		});
 }

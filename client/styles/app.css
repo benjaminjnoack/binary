@@ -9,9 +9,12 @@ form#binary-form input.ng-invalid.ng-touched {
 .glyphicon {
     top: 0px;
     margin: auto;
-    color: #3a87ad;
 }
 
-#addition {
+button.btn-success > span.glyphicon {
+	color: #FFF;
+}
+
+button.btn-danger > span.glyphicon {
 	color: #000;
 }
