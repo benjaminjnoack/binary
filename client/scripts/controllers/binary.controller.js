@@ -36,18 +36,17 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 	};
 
 	var calculateBinary = function (num) {
-
 		var binaryString = (num >>> 0).toString(2);	
 		return prependZeros(binaryString);
 	};
 
 	var updateSums = function () {
-		console.log()
 		$scope.models.baseTenSum = $scope.models.augend.baseTen + $scope.models.addend.baseTen;
+		$scope.models.baseTwoSum = calculateBinary($scope.models.baseTenSum);
 	}
 
 	$scope.baseTenCheck = {
-		regEx: /[\d]{1,3}/,
+		regEx: /^[\d]{1,3}$/,
 		test: function (value) {
 			if (!this.regEx.test(value)) return false;
 			var numValue = parseInt(value, 10);
@@ -137,7 +136,7 @@ var BinaryCtrl = function ($scope, $interval, $timeout) {
 			baseTwo: calculateBinary(0),
 			baseTen: 0
 		},
-		baseTenSum: 0,
-		baseTwoSum: 0
+		baseTwoSum: calculateBinary(0),
+		baseTenSum: 0
 	};
 }
