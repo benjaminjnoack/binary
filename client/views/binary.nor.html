@@ -1,14 +1,36 @@
 <div class="col-md-3">
+	
 	<div id="nor">
 		<h3>NOR</h3>
 		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !nor, 'btn-success': nor}">
 			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 		</button>
-		
 	</div>
+	
 	<div class="btn-group" role="group">
 	  <button type="button" class="btn btn-default" ng-class="{'active': norLeft}" ng-model="norLeft" ng-click="norLeft = !norLeft; nor = checkNor(norLeft, norRight)">Left</button>
 	  <button type="button" class="btn btn-default" ng-class="{'active': norRight}" ng-model="norRight" ng-click="norRight = !norRight; nor = checkNor(norLeft, norRight)">Right</button>
 	</div>
 	
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>NOR</th>
+				<td>0</td>
+				<td>1</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>0</td>
+				<td>1</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>0</td>
+				<td>1</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

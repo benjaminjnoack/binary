@@ -4,4 +4,5 @@ angular
 	.controller('BinaryZeroCtrl', BinaryZeroCtrl)
 	.controller('BinaryOneCtrl', BinaryOneCtrl)
 	.config(urlRouting)
+	.config(stateDecorator)
 	.config(stateDefinition);

@@ -11,7 +11,7 @@ var stateDefinition = function ($stateProvider) {
 			template: '<p>Hello World</p>'
 		})
 		.state('binary', {
-			abstract: true,
+			//abstract: true,
 			url: '/binary',
 			templateUrl: getTemp('binary'),
 			controller: 'BinaryCtrl'
