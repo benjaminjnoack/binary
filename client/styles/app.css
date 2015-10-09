@@ -11,6 +11,16 @@ form#binary-form input.ng-invalid.ng-touched {
     margin: auto;
 }
 
+.on {
+	background-color: green;
+	color: #FFF;
+}
+
+.off {
+	background-color: red;
+	color: #000;
+}
+
 button.btn-success > span.glyphicon {
 	color: #FFF;
 }
@@ -20,5 +30,5 @@ button.btn-danger > span.glyphicon {
 }
 
 .btn-default.focus, .btn-default:focus {
-	background-color: #fff;
+	background-color: #FFF;
 }

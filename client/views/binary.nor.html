@@ -8,8 +8,8 @@
 	</div>
 	
 	<div class="btn-group" role="group">
-	  <button type="button" class="btn btn-default" ng-class="{'active': norLeft}" ng-model="norLeft" ng-click="norLeft = !norLeft; nor = checkNor(norLeft, norRight)">Left</button>
-	  <button type="button" class="btn btn-default" ng-class="{'active': norRight}" ng-model="norRight" ng-click="norRight = !norRight; nor = checkNor(norLeft, norRight)">Right</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': norLeft}" ng-model="norLeft" ng-click="norLeft = !norLeft; nor = checkNor(norLeft, norRight)">{{ norLeft ? '1' : '0' }}</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': norRight}" ng-model="norRight" ng-click="norRight = !norRight; nor = checkNor(norLeft, norRight)">{{ norRight ? '1' : '0' }}</button>
 	</div>
 	
 	<table class="table table-bordered">

@@ -8,8 +8,8 @@
 	</div>
 	
 	<div class="btn-group" role="group">
-	  <button type="button" class="btn btn-default" ng-class="{'active': xorLeft}" ng-model="xorLeft" ng-click="xorLeft = !xorLeft; xor = checkXor(xorLeft, xorRight)">Left</button>
-	  <button type="button" class="btn btn-default" ng-class="{'active': xorRight}" ng-model="xorRight" ng-click="xorRight = !xorRight; xor = checkXor(xorLeft, xorRight)">Right</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': xorLeft}" ng-model="xorLeft" ng-click="xorLeft = !xorLeft; xor = checkXor(xorLeft, xorRight)">{{ xorLeft ? '1' : '0' }}</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': xorRight}" ng-model="xorRight" ng-click="xorRight = !xorRight; xor = checkXor(xorLeft, xorRight)">{{ xorRight ? '1' : '0' }}</button>
 	</div>
 
 	<table class="table table-bordered">

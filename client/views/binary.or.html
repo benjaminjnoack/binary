@@ -8,8 +8,8 @@
 	</div>
 	
 	<div class="btn-group" role="group">
-	  <button type="button" class="btn btn-default" ng-class="{'active': orLeft}" ng-model="orLeft" ng-click="orLeft = !orLeft; or = checkOr(orLeft, orRight)">Left</button>
-	  <button type="button" class="btn btn-default" ng-class="{'active': orRight}" ng-model="orRight" ng-click="orRight = !orRight; or = checkOr(orLeft, orRight)">Right</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': orLeft}" ng-model="orLeft" ng-click="orLeft = !orLeft; or = checkOr(orLeft, orRight)">{{ orLeft ? '1' : '0' }}</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': orRight}" ng-model="orRight" ng-click="orRight = !orRight; or = checkOr(orLeft, orRight)">{{ orRight ? '1' : '0' }}</button>
 	</div>
 
 	<table class="table table-bordered">

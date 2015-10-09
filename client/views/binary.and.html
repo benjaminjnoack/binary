@@ -8,8 +8,8 @@
 	</div>
 	
 	<div class="btn-group" role="group">
-	  <button type="button" class="btn btn-default" ng-class="{'active': andLeft}" ng-model="andLeft" ng-click="andLeft = !andLeft; and = checkAnd(andLeft, andRight)">Left</button>
-	  <button type="button" class="btn btn-default" ng-class="{'active': andRight}" ng-model="andRight" ng-click="andRight = !andRight; and = checkAnd(andLeft, andRight)">Right</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': andLeft}" ng-model="andLeft" ng-click="andLeft = !andLeft; and = checkAnd(andLeft, andRight)">{{ andLeft ? '1' : '0' }}</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': andRight}" ng-model="andRight" ng-click="andRight = !andRight; and = checkAnd(andLeft, andRight)">{{ andRight ? '1' : '0' }}</button>
 	</div>
 
 	<table class="table table-bordered">
