@@ -6,11 +6,11 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/static/styles/app.css">
 </head>
-<body>
+<body ng-controller="MotherCtrl">
 	
-	<section class="container" ui-view>
-		<!-- Main Content -->
-	</section>
+	<div  ng-class="{ 'container-fluid': mobileView, 'container': !mobileView }" ui-view>
+		<!-- Main Content-->
+	</div>
 
 	<!-- Deps -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -24,6 +24,7 @@
 	<script type="text/javascript" src="/static/scripts/config/stateDecorator.js"></script>
 	<script type="text/javascript" src="/static/scripts/config/stateDefinition.js"></script>
 	<!-- Controllers -->
+	<script type="text/javascript" src="/static/scripts/controllers/mother.controller.js"></script>
 	<script type="text/javascript" src="/static/scripts/controllers/binary.controller.js"></script>
 	<script type="text/javascript" src="/static/scripts/controllers/binary.zero.controller.js"></script>
 	<script type="text/javascript" src="/static/scripts/controllers/binary.one.controller.js"></script>
