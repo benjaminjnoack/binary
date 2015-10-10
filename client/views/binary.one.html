@@ -1,5 +1,5 @@
 <div class="well row" ng-repeat="gate in gates track by $index">
 	<h2>{{ gate.name }}</h2>
-	<img src="{{ gate.img }}" class="img-responsive" alt="Responsive image">
+	<img ng-src="{{ gate.img }}" class="img-responsive" alt="Responsive image">
 	<ng-include src="gate.path" scope="" onload=""></ng-include>
 </div>

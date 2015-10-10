@@ -7,28 +7,28 @@
 	</div>
 	
 	<div class="btn-group" role="group">
-	  <button type="button" class="btn btn-default" ng-class="{'active': nandLeft}" ng-model="nandLeft" ng-click="nandLeft = !nandLeft; nand = checknand(nandLeft, nandRight)">{{ nandLeft ? '1' : '0' }}</button>
-	  <button type="button" class="btn btn-default" ng-class="{'active': nandRight}" ng-model="nandRight" ng-click="nandRight = !nandRight; nand = checknand(nandLeft, nandRight)">{{ nandRight ? '1' : '0' }}</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': nandLeft}" ng-model="nandLeft" ng-click="nandLeft = !nandLeft; nand = checkNand(nandLeft, nandRight)">{{ nandLeft ? '1' : '0' }}</button>
+	  <button type="button" class="btn btn-default" ng-class="{'active': nandRight}" ng-model="nandRight" ng-click="nandRight = !nandRight; nand = checkNand(nandLeft, nandRight)">{{ nandRight ? '1' : '0' }}</button>
 	</div>
 	
 	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>nand</th>
-				<td>0</td>
-				<td>1</td>
+				<td ng-class="{'on': !nandRight}"><strong>0</strong></td>
+				<td ng-class="{'off': nandLeft && nandRight, 'on': !nandLeft && nandRight}"><strong>1</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>0</td>
-				<td>1</td>
-				<td>1</td>
+				<td ng-class="{'on': !nandLeft}"><strong>0</strong></td>
+				<td ng-class="{'on': !nandLeft && !nandRight }">1</td>
+				<td ng-class="{'on': !nandLeft && nandRight }">1</td>
 			</tr>
 			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>0</td>
+				<td ng-class="{'off': nandLeft && nandRight, 'on': nandLeft && !nandRight}"><strong>1</strong></td>
+				<td ng-class="{'on': nandLeft && !nandRight }">1</td>
+				<td ng-class="{'off': nandLeft && nandRight }">0</td>
 			</tr>
 		</tbody>
 	</table>

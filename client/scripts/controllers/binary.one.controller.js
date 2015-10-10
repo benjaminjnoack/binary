@@ -28,17 +28,17 @@ var BinaryOneCtrl = function ($scope) {
 		return a || b;
 	};
 
-	var checkXor = function(a, b) {
-		return (checkOr(a, b) && !checkAnd(a, b));
+	var checkNand = function (a, b) {
+		return !checkAnd(a, b);
 	};
 
 	var checkNor = function(a, b) {
 		return !checkOr(a, b);
 	};
 
-	var checkNand = function (a, b) {
-		return !checkAnd(a, b);
-	}
+	var checkXor = function(a, b) {
+		return (checkOr(a, b) && !checkAnd(a, b));
+	};
 
 
 	$scope.checkAnd = checkAnd;
