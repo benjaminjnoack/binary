@@ -1,7 +1,7 @@
 <div class="col-md-3">
 	
 	<div id="or">
-		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !or, 'btn-success': or}">
+		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !or, 'btn-success': or}" disabled="disabled">
 			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 		</button>
 	</div>
@@ -15,20 +15,20 @@
 		<thead>
 			<tr>
 				<th>OR</th>
-				<td ng-class="{ 'off': !orLeft && !orRight, 'on': orLeft && !orRight }"><strong>0</strong></td>
-				<td ng-class="{ 'on': orRight }"><strong>1</strong></td>
+				<td ng-class="{ 'bg-danger': !orLeft && !orRight, 'bg-success': orLeft && !orRight }"><strong>0</strong></td>
+				<td ng-class="{ 'bg-success': orRight }"><strong>1</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td ng-class="{ 'off': !orLeft && !orRight, 'on': !orLeft && orRight }"><strong>0</strong></td>
-				<td ng-class="{ 'off': !or}">0</td>
-				<td ng-class="{ 'on': !orLeft && orRight }">1</td>
+				<td ng-class="{ 'bg-danger': !orLeft && !orRight, 'bg-success': !orLeft && orRight }"><strong>0</strong></td>
+				<td ng-class="{ 'bg-danger': !or}">0</td>
+				<td ng-class="{ 'bg-success': !orLeft && orRight }">1</td>
 			</tr>
 			<tr>
-				<td ng-class="{ 'on': orLeft }"><strong>1</strong></td>
-				<td ng-class="{ 'on': orLeft && !orRight }">1</td>
-				<td ng-class="{ 'on': orLeft && orRight }">1</td>
+				<td ng-class="{ 'bg-success': orLeft }"><strong>1</strong></td>
+				<td ng-class="{ 'bg-success': orLeft && !orRight }">1</td>
+				<td ng-class="{ 'bg-success': orLeft && orRight }">1</td>
 			</tr>
 		</tbody>
 	</table>

@@ -1,7 +1,7 @@
 <div class="col-md-3">
 
 	<div id="and">
-		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !and, 'btn-success': and}">
+		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !and, 'btn-success': and}" disabled="disabled">
 			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 		</button>
 	</div>
@@ -15,20 +15,20 @@
 		<thead>
 			<tr>
 				<th>AND</th>
-				<td ng-class="{ 'off': !andRight}"><strong>0</strong></td>
-				<td ng-class="{ 'off': (!and && andRight), 'on': and }"><strong>1</strong></td>
+				<td ng-class="{ 'bg-danger': !andRight}"><strong>0</strong></td>
+				<td ng-class="{ 'bg-danger': (!and && andRight), 'bg-success': and }"><strong>1</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td ng-class="{ 'off': !andLeft}"><strong>0</strong></td>
-				<td ng-class="{ 'off': !andLeft && !andRight }">0</td>
-				<td ng-class="{ 'off': !andLeft && andRight }">0</td>
+				<td ng-class="{ 'bg-danger': !andLeft}"><strong>0</strong></td>
+				<td ng-class="{ 'bg-danger': !andLeft && !andRight }">0</td>
+				<td ng-class="{ 'bg-danger': !andLeft && andRight }">0</td>
 			</tr>
 			<tr>
-				<td ng-class="{ 'off': (!and && andLeft), 'on': and }"><strong>1</strong></td>
-				<td ng-class="{ 'off': andLeft && !andRight}">0</td>
-				<td ng-class="{ 'on': and }">1</td>
+				<td ng-class="{ 'bg-danger': (!and && andLeft), 'bg-success': and }"><strong>1</strong></td>
+				<td ng-class="{ 'bg-danger': andLeft && !andRight}">0</td>
+				<td ng-class="{ 'bg-success': and }">1</td>
 			</tr>
 		</tbody>
 	</table>

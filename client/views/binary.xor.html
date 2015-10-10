@@ -1,7 +1,7 @@
 <div class="col-md-3">
 	
 	<div id="xor">
-		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !xor, 'btn-success': xor}">
+		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !xor, 'btn-success': xor}" disabled="disabled">
 			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 		</button>
 	</div>
@@ -15,20 +15,20 @@
 		<thead>
 			<tr>
 				<th>XOR</th>
-				<td ng-class="{ 'off': !xorLeft && !xorRight, 'on': xorLeft && !xorRight }"><strong>0</strong></td>
-				<td ng-class="{ 'off': xorLeft && xorRight, 'on': !xorLeft && xorRight }"><strong>1</strong></td>
+				<td ng-class="{ 'bg-danger': !xorLeft && !xorRight, 'bg-success': xorLeft && !xorRight }"><strong>0</strong></td>
+				<td ng-class="{ 'bg-danger': xorLeft && xorRight, 'bg-success': !xorLeft && xorRight }"><strong>1</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td ng-class="{ 'off': !xorLeft && !xorRight, 'on': !xorLeft && xorRight }"><strong>0</strong></td>
-				<td ng-class="{ 'off': !xorLeft && !xorRight }">0</td>
-				<td ng-class="{ 'on': !xorLeft && xorRight }">1</td>
+				<td ng-class="{ 'bg-danger': !xorLeft && !xorRight, 'bg-success': !xorLeft && xorRight }"><strong>0</strong></td>
+				<td ng-class="{ 'bg-danger': !xorLeft && !xorRight }">0</td>
+				<td ng-class="{ 'bg-success': !xorLeft && xorRight }">1</td>
 			</tr>
 			<tr>
-				<td ng-class="{ 'off': xorLeft && xorRight, 'on': xorLeft && !xorRight }"><strong>1</strong></td>
-				<td ng-class="{ 'on': xorLeft && !xorRight }">1</td>
-				<td ng-class="{ 'off': xorLeft && xorRight }">0</td>
+				<td ng-class="{ 'bg-danger': xorLeft && xorRight, 'bg-success': xorLeft && !xorRight }"><strong>1</strong></td>
+				<td ng-class="{ 'bg-success': xorLeft && !xorRight }">1</td>
+				<td ng-class="{ 'bg-danger': xorLeft && xorRight }">0</td>
 			</tr>
 		</tbody>
 	</table>
