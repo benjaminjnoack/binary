@@ -1,7 +1,6 @@
 <div class="col-md-3">
 
 	<div id="and">
-		<h3>AND</h3>
 		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !and, 'btn-success': and}">
 			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 		</button>
@@ -16,20 +15,20 @@
 		<thead>
 			<tr>
 				<th>AND</th>
-				<td>0</td>
-				<td>1</td>
+				<td ng-class="{ 'off': !andRight}"><strong>0</strong></td>
+				<td ng-class="{ 'off': (!and && andRight), 'on': and }"><strong>1</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>0</td>
-				<td>0</td>
-				<td>0</td>
+				<td ng-class="{ 'off': !andLeft}"><strong>0</strong></td>
+				<td ng-class="{ 'off': !andLeft && !andRight }">0</td>
+				<td ng-class="{ 'off': !andLeft && andRight }">0</td>
 			</tr>
 			<tr>
-				<td>1</td>
-				<td>0</td>
-				<td>1</td>
+				<td ng-class="{ 'off': (!and && andLeft), 'on': and }"><strong>1</strong></td>
+				<td ng-class="{ 'off': andLeft && !andRight}">0</td>
+				<td ng-class="{ 'on': and }">1</td>
 			</tr>
 		</tbody>
 	</table>

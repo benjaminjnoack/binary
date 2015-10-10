@@ -1,7 +1,6 @@
 <div class="col-md-3">
 	
 	<div id="nor">
-		<h3>NOR</h3>
 		<button type="button" class="btn btn-lg" ng-class="{'btn-danger': !nor, 'btn-success': nor}">
 			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 		</button>
@@ -16,20 +15,20 @@
 		<thead>
 			<tr>
 				<th>NOR</th>
-				<td>0</td>
-				<td>1</td>
+				<td ng-class="{ 'off': norLeft && !norRight, 'on': !norLeft && !norRight }"><strong>0</strong></td>
+				<td ng-class="{ 'off': norRight }"><strong>1</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>0</td>
-				<td>1</td>
-				<td>0</td>
+				<td ng-class="{ 'off': !norLeft && norRight, 'on': !norLeft && !norRight }"><strong>0</strong></td>
+				<td ng-class="{ 'on': !norLeft && !norRight }">1</td>
+				<td ng-class="{ 'off': !norLeft && norRight }">0</td>
 			</tr>
 			<tr>
-				<td>1</td>
-				<td>0</td>
-				<td>1</td>
+				<td ng-class="{ 'off': norLeft }"><strong>1</strong></td>
+				<td ng-class="{ 'off': norLeft && !norRight }">0</td>
+				<td ng-class="{ 'off': norLeft && norRight }">0</td>
 			</tr>
 		</tbody>
 	</table>
