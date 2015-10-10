@@ -1,7 +1,6 @@
 var MotherCtrl = function ($scope, $timeout) {
 
 	var checkMobileView = function () {
-		console.log(window.innerWidth < 768)
 		return window.innerWidth < 768;
 	};
 	
