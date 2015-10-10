@@ -8,8 +8,10 @@
 </head>
 <body ng-controller="MotherCtrl">
 	
-	<div  ng-class="{ 'container-fluid': mobileView, 'container': !mobileView }" ui-view>
-		<!-- Main Content-->
+	<div ng-class="{ 'container-fluid': mobileView, 'container': !mobileView }">
+		<section ui-view>
+			<!-- Main Content-->
+		</section>
 	</div>
 
 	<!-- Deps -->

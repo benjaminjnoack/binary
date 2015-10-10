@@ -1,4 +1,4 @@
-var MotherCtrl = function ($scope) {
+var MotherCtrl = function ($scope, $timeout) {
 
 	var checkMobileView = function () {
 		console.log(window.innerWidth < 768)
@@ -8,6 +8,8 @@ var MotherCtrl = function ($scope) {
 	$scope.mobileView = checkMobileView();
 	
 	$(window).resize(function () {
-		$scope.mobileView = checkMobileView();
+		$timeout(function () {
+			$scope.mobileView = checkMobileView();
+		});
 	});
 };
